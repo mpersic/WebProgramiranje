@@ -33,7 +33,7 @@ export const Products = () => {
 
     return (
         <>
-            {products.length !== 0 && <h1>Products</h1>}
+            {products.length !== 0}
             <div className='products-container'>
                 {products.length === 0 && <div>slow internet...no products to display</div>}
                 {products.map(product => (
