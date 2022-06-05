@@ -11,13 +11,20 @@ export const Products = () => {
     let x = 0;
     let y = 0;
 
-    const displayInfo = (productId) => {
-        let infobox = document.getElementById(productId);
+    const displayInfo = (product) => {
+        let infobox = document.getElementById(product.ProductID);
 
         let text = x > window.innerWidth / 4 * 3 ? "active-box-left" : "active-box-right"
 
         infobox.setAttribute("class", text);
-        infobox.innerHTML="row1<br>row2<br>row3<br>roe4<br>row5";
+
+        let name = product.ProductName;
+        let seller = product.ProductSeller;
+        let price = product.ProductPrice;
+        let location = product.ProductLocation;
+        let email = product.ProductSellerEmail;
+
+        infobox.innerHTML = name + "<br>" + seller + "<br>" + price + "<br>" + location + "<br>" + email + "<br>";
     } 
 
     const hideInfo = (productId) => {
@@ -38,7 +45,7 @@ export const Products = () => {
                 {products.length === 0 && <div>slow internet...no products to display</div>}
                 {products.map(product => (
                     <div className='product-card' key={product.ProductID}>
-                        <div className='product-img' onMouseEnter={() => displayInfo(product.ProductID)} onMouseLeave={() => hideInfo(product.ProductID)}>
+                        <div className='product-img' onMouseEnter={() => displayInfo(product)} onMouseLeave={() => hideInfo(product.ProductID)}>
                             <div className='img-wrapper hover-zoom'>
                                 <img src={product.ProductImg} alt="not found"/>
                             </div> 

@@ -61,7 +61,7 @@ export const AddProducts = ({ user }) => {
                         ProductName: productName,
                         ProductPrice: Number(productPrice),
                         ProductImg: url,
-                        productLocation: productLocation,
+                        ProductLocation: productLocation,
                         ProductSeller: productSeller,
                         ProductSellerEmail : productSellerEmail
                     }).then(() => {
