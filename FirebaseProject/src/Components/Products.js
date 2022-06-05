@@ -8,6 +8,29 @@ export const Products = () => {
 
     const { dispatch } = useContext(CartContext);
 
+    let x = 0;
+    let y = 0;
+
+    const displayInfo = (productId) => {
+        let infobox = document.getElementById(productId);
+
+        let text = x > window.innerWidth / 4 * 3 ? "active-box-left" : "active-box-right"
+
+        infobox.setAttribute("class", text);
+        infobox.innerHTML="row1<br>row2<br>row3<br>roe4<br>row5";
+    } 
+
+    const hideInfo = (productId) => {
+        let infobox = document.getElementById(productId);
+        infobox.innerHTML="";
+    } 
+
+    const handleWindowMouseMove = event => {
+        x = event.screenX;
+        y = event.screenY;
+    };
+    window.addEventListener('mousemove', handleWindowMouseMove);
+
     return (
         <>
             {products.length !== 0 && <h1>Products</h1>}
@@ -15,8 +38,11 @@ export const Products = () => {
                 {products.length === 0 && <div>slow internet...no products to display</div>}
                 {products.map(product => (
                     <div className='product-card' key={product.ProductID}>
-                        <div className='product-img'>
-                            <img src={product.ProductImg} alt="not found" />
+                        <div className='product-img' onMouseEnter={() => displayInfo(product.ProductID)} onMouseLeave={() => hideInfo(product.ProductID)}>
+                            <div className='img-wrapper hover-zoom'>
+                                <img src={product.ProductImg} alt="not found"/>
+                            </div> 
+                            <div className='hover-zoom' id={product.ProductID}></div>
                         </div>
                         <div className='product-name'>
                             {product.ProductName}
