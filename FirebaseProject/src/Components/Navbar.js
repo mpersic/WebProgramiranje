@@ -22,14 +22,17 @@ export const Navbar = ({ user }) => {
     return (
         <div className='navbox'>
             <div className='leftside'>
-                <img src={logo} alt="" />
+                <Link to="/" className='navlink'>
+                <img src={logo} alt="" className='pageIcon'/>
+                </Link>
+                {/* <h1 className='pageTitle'> Njuškalo lite</h1> */}
             </div>
             {!user && <div className='rightside'>
                 <span><Link to="signup" className='navlink'>SIGN UP</Link></span>
                 <span><Link to="login" className='navlink'>LOGIN</Link></span>
             </div>}
             {user && <div className='rightside'>
-                <span><Link to="/" className='navlink'>{user}</Link></span>
+                <span><Link to="addproducts" className='navlink'>Sell new item </Link></span>
                 <span><Link to="cartproducts" className='navlink'><Icon icon={cart} /></Link></span>
                 <span className='no-of-products'>{totalQty}</span>
                 <span><button className='logout-btn' onClick={handleLogout}>Logout</button></span>

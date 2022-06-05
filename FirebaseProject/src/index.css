@@ -31,6 +31,7 @@ body {
 
 /* navbar */
 .navbox {
+    background-color: #8bacd6;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,7 +41,19 @@ body {
 .navbox .leftside {
     width: 80px;
     height: 80px;
+    position: relative;
 }
+
+/* .navbox .leftside .navlink .pageIcon{
+    position: relative;
+    left: 0;
+} */
+
+.navbox .leftside .pageTitle{
+    right: 150;
+    position: relative;
+}
+
 
 .navbox .leftside img {
     width: 100%;
